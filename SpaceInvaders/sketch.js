@@ -120,11 +120,6 @@ function keyPressed() {
   }
 }
 
-function touchStarted(){
-  ship.move(1,0);
-}
-
-
 
 function levelHandler(ship, aliens) {
   ship.levelUp();
