@@ -4,6 +4,9 @@ function Ship() {
   this.dead = false;
   this.y = height / 2;
   this.x = 20;
+  this.targetX = this.x;
+  this.targetY = this.y;
+  this.speed = 10;
 
   this.show = function () {
     fill(255);
@@ -16,6 +19,19 @@ function Ship() {
   this.move = function (x, y) {
     this.x += x * 5;
     this.y += y * 5;
+  };
+  this.mobileMove = function (x, y) {
+    this.targetX = x;
+    this.targetY = y;
+  };
+
+  this.reachTarget = function () {
+    move = this.speed / 10;
+    let farkX = this.targetX - this.x;
+    let farkY = this.targetY - this.y;
+
+    this.x = this.x + (farkX * move) / 100;
+    this.y = this.y + (farkY * move) / 100;
   };
 
   this.levelUp = function () {
